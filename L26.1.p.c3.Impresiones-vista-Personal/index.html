@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCyT - Panel del Personal</title>
+</head>
+
+<body>
+
+  <section id="personal" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 750px;">
+    <h2>Panel de Administración - Impresiones</h2>
+    
+    <div style="margin-bottom: 15px; background: #f4f4f4; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      <h4>Estadísticas Globales del Día</h4>
+      <p>Total Copias Solicitadas: <strong id="personal_lblTotalCopias">0</strong></p>
+      <p>Total Ingresos Estimados: <strong id="personal_lblTotalIngresos">0</strong> Bs.</p>
+    </div>
+
+    <button id="personal_btRecargar">Recargar Solicitudes</button>
+    
+    <label style="margin-left: 20px;">
+      <input id="personal_chkSoloDisponibles" type="checkbox"> Mostrar solo "Disponibles"
+    </label>
+    <br><br>
+
+    <table border="1" style="width: 100%; text-align: center; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #e3e3e3;">
+          <th>Cédula</th>
+          <th>Estudiante</th>
+          <th>Documento</th>
+          <th>Copias</th>
+          <th>Referencia</th>
+          <th>tarifa Total</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="personal_tblRegistros"></tbody>
+    </table>
+  </section>
+
+  <script type="module">
+    import Cl_mImpresiones from "./dist/models/Cl_mImpresiones.js";
+    import Cl_vImpresiones from "./dist/views/Cl_vImpresiones.js";
+    import Cl_cImpresiones from "./dist/controllers/Cl_cImpresiones.js";
+
+    // Inicializamos el patrón MVC para el personal
+    const modelo = new Cl_mImpresiones();
+    const vista = new Cl_vImpresiones();
+    new Cl_cImpresiones(modelo, vista);
+  </script>
+</body>
+
+</html>

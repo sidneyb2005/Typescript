@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCyT - Solicitud de Impresión</title>
+</head>
+
+<body>
+
+  <section id="solicitud" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 500px;">
+    <h5 id="">Nueva Solicitud de Impresión</h5>    
+
+    <div>
+      <label>Cédula:
+        <input type="number" id="solicitud_inCedula" placeholder="Cédula del estudiante">
+      </label>
+    </div>
+    <br>
+
+    <div>
+      <label>Nombre y Apellido:
+        <input type="text" id="solicitud_inNombre" placeholder="Nombre del estudiante">
+      </label>
+    </div>
+    <br>
+
+    <div>
+      <label>Nombre del Documento (PDF/DOCX):
+        <input type="text" id="solicitud_inDocumento" placeholder="Ej. Tesis_Final.pdf">
+      </label>
+    </div>
+    <br>
+    
+    <div>
+      <label>Cantidad de Copias:
+        <input type="number" id="solicitud_inCopias" placeholder="Tarifa: 5 Bs c/u">
+      </label>
+    </div>
+    <br><br>
+
+    <h4>Validación de Pago</h4>
+    <fieldset id="solicitud_inPago">
+      <p><strong>Datos de Pago Móvil</strong></p>
+      <label>N° Referencia:
+        <input type="number" id="solicitud_inReferencia" placeholder="Últimos dígitos de la referencia">
+      </label>
+    </fieldset>
+
+    <br><br>
+
+    <button id="solicitud_btEnviar">Enviar Solicitud</button>
+  </section>
+
+  <script type="module">
+    import Cl_cSolicitud from "./dist/controllers/Cl_cSolicitud.js";
+    import Cl_vSolicitud from "./dist/views/Cl_vSolicitud.js";
+
+    // 1. Instanciamos la vista
+    const vistaSolicitud = new Cl_vSolicitud();
+
+    // 2. Inyectamos la vista en el controlador
+    new Cl_cSolicitud(vistaSolicitud);
+  </script>
+</body>
+
+</html>
